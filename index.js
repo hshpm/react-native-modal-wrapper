@@ -129,11 +129,13 @@ export default class ModalWrapper extends Component {
 
     Animated.timing(this.state.overlayOpacity, {
       toValue: this.getOverlayOpacity(),
-      duration: animationDuration
+      duration: animationDuration,
+      useNativeDriver: false
     }).start();
     Animated.timing(this.state.currentPosition, {
       toValue: 0,
-      duration: animationDuration
+      duration: animationDuration,
+      useNativeDriver: false
     }).start(() => {
       this.setState({ isAnimating: false });
       onAnimateOpen();
@@ -147,11 +149,13 @@ export default class ModalWrapper extends Component {
 
     Animated.timing(this.state.overlayOpacity, {
       toValue: 0,
-      duration: animationDuration
+      duration: animationDuration,
+      useNativeDriver: false
     }).start();
     Animated.timing(this.state.currentPosition, {
       toValue: initialPosition,
-      duration: animationDuration
+      duration: animationDuration,
+      useNativeDriver: false
     }).start(() => {
       this.isClosingFromOverlayPress = false;
       this.setState({ isAnimating: false });
